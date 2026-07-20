@@ -23,7 +23,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=215865766]
-process_mode = 1
+process_mode = 2
 layer = 20
 
 [node name="Pause" type="Control" parent="Pause" unique_id=1890377558]
