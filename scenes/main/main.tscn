@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://btmvh6cad1lsq"]
+
+[node name="Main" type="Node" unique_id=545323619]
+process_mode = 3
+
+[node name="World" type="Node2D" parent="." unique_id=1263326404]
+process_mode = 1
+
+[node name="Level" type="Node2D" parent="World" unique_id=21942664]
+
+[node name="Entity" type="Node2D" parent="World" unique_id=1025459119]
+
+[node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=363082753]
+process_mode = 1
+layer = 20
+
+[node name="Hud" type="Control" parent="Hud" unique_id=1100501706]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=215865766]
+process_mode = 1
+layer = 20
+
+[node name="Pause" type="Control" parent="Pause" unique_id=1890377558]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Transition" type="CanvasLayer" parent="." unique_id=181723303]
+process_mode = 3
+layer = 40
+
+[node name="Transition" type="Control" parent="Transition" unique_id=232521085]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
