@@ -6,8 +6,6 @@ extends CharacterBody2D
 
 var input_direction: Vector2 = Vector2.ZERO
 
-func _ready() -> void:
-	animation.play("Idle")
 
 func _physics_process(delta: float) -> void:
 	_gather_input()

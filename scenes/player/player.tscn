@@ -55,8 +55,11 @@ hframes = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049034449]
 shape = SubResource("CircleShape2D_rs74b")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1504415926]
+
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_gmlin")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=236606133]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0owmy")
+autoplay = &"Idle"
