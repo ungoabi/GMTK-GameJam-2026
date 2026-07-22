@@ -50,6 +50,7 @@ func _play_one_shot(stream: AudioStream, bus: Bus, mode: Node.ProcessMode, pitch
 	var player: AudioStreamPlayer = _create_player(stream, bus)
 	player.process_mode = mode
 	player.pitch_scale = _pitch_variance(pitch_variance)
+	add_child(player)
 	player.play()
 
 
@@ -58,9 +59,10 @@ func _create_player(stream: AudioStream, bus: Bus) -> AudioStreamPlayer:
 	player.bus = bus_map[bus]
 	player.stream = stream
 	player.finished.connect(player.queue_free)
-	add_child(player)
 	return player
 
 
 func _pitch_variance(variance: float) -> float:
-	return randf_range(1-variance, 1+variance)
+	if variance == 0:
+		return 1
+	return max(0.01, randf_range(1-variance, 1+variance))
