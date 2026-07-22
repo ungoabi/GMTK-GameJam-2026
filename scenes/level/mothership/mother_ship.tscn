@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bqyefioclc3vb"]
+
+[ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="1_yq7fg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fglp6"]
+size = Vector2(20, 10)
+
+[node name="MotherShip" type="Node2D" unique_id=2003116116]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1964405334]
+scale = Vector2(0.359375, 0.25)
+texture = ExtResource("1_yq7fg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=411346361]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=46004730]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_fglp6")
+debug_color = Color(0.70018196, 0.4921878, 0.029085798, 0.41960785)
