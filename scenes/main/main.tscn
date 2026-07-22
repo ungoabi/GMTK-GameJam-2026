@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://btmvh6cad1lsq"]
 
+[ext_resource type="PackedScene" uid="uid://b1atk55e1mopc" path="res://scenes/player/character_body_2d.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://wuso24b3tsaa" path="res://scenes/level/background.tscn" id="1_iuonh"]
+
 [node name="Main" type="Node" unique_id=545323619]
 process_mode = 3
 
@@ -8,7 +11,11 @@ process_mode = 1
 
 [node name="Level" type="Node2D" parent="World" unique_id=21942664]
 
+[node name="Background" parent="World/Level" unique_id=1723859892 instance=ExtResource("1_iuonh")]
+
 [node name="Entity" type="Node2D" parent="World" unique_id=1025459119]
+
+[node name="CharacterBody2D" parent="World/Entity" unique_id=2040856127 instance=ExtResource("1_hyk8p")]
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 

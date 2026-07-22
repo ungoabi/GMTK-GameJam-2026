@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://wuso24b3tsaa"]
+
+[ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="1_2klh0"]
+
+[node name="Background" type="Sprite2D" unique_id=1723859892]
+scale = Vector2(5.24, 5.24)
+texture = ExtResource("1_2klh0")
+centered = false
