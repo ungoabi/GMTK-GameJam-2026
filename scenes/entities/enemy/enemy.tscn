@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=539600628]
+collision_layer = 4
 script = ExtResource("1_6fawb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=218686231]
