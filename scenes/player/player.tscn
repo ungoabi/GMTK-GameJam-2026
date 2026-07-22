@@ -2,12 +2,61 @@
 
 [ext_resource type="Script" uid="uid://q4qnedni5a7w" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement/movement.tscn" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://dj6mn85b7q2ru" path="res://assets/sprites/player/Player_spritesheet.png" id="2_lvxji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rs74b"]
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "Idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_75vfm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
+_data = {
+&"Idle": SubResource("Animation_p47bc"),
+&"RESET": SubResource("Animation_75vfm")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=457442979]
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148868581]
+texture_filter = 1
+texture = ExtResource("2_lvxji")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049034449]
+shape = SubResource("CircleShape2D_rs74b")
 
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_gmlin")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=236606133]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_0owmy")
