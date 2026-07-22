@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dlsn7gc1ue34q"]
+
+[ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="1_1y44r"]
+[ext_resource type="Script" uid="uid://yx4av68m10fe" path="res://scenes/entities/enemy/enemy.gd" id="1_6fawb"]
+[ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement/movement.tscn" id="2_6fawb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=539600628]
+script = ExtResource("1_6fawb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=218686231]
+modulate = Color(1, 0.26999998, 0.26999998, 1)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("1_1y44r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794242250]
+shape = SubResource("CircleShape2D_fglp6")
+
+[node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_6fawb")]
