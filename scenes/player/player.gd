@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 
 @onready var movement: Movement = $Movement
-
+@onready var animation: AnimationPlayer = $%AnimationPlayer
 
 var input_direction: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	animation.play("Idle")
 
 func _physics_process(delta: float) -> void:
 	_gather_input()
