@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1atk55e1mopc"]
 
-[ext_resource type="Script" uid="uid://q4qnedni5a7w" path="res://scenes/player/character_body_2d.gd" id="1_lxlh8"]
+[ext_resource type="Script" uid="uid://q4qnedni5a7w" path="res://scenes/player/player.gd" id="1_lxlh8"]
 [ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="1_s25n1"]
-[ext_resource type="Script" uid="uid://b6bt5i45pp7in" path="res://movement.gd" id="2_lxlh8"]
+[ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement.tscn" id="3_lxlh8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
 
@@ -18,5 +18,4 @@ shape = SubResource("CircleShape2D_fglp6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=360177599]
 
-[node name="Movement" type="Node" parent="." unique_id=40933310]
-script = ExtResource("2_lxlh8")
+[node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("3_lxlh8")]

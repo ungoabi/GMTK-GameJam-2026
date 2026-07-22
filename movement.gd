@@ -8,5 +8,5 @@ class_name Movement
 
 @onready var body: CharacterBody2D = get_parent()
 
-func process_movement(input_direction: Vector2, delta: float) -> void:
-	body.velocity = body.velocity.move_toward(input_direction * max_speed, acceleration * delta)
+func process_movement(direction: Vector2, delta: float) -> void:
+	body.velocity = body.velocity.move_toward(direction * max_speed, acceleration * delta)

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvc3x84p35o7s"]
+
+[ext_resource type="Script" uid="uid://j55glejc1a6d" path="res://civilian.gd" id="1_tgd0v"]
+[ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="2_ejy62"]
+[ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement.tscn" id="3_2j1qa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
+
+[node name="Civilian" type="CharacterBody2D" unique_id=2128872988]
+script = ExtResource("1_tgd0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355216786]
+modulate = Color(0.16199999, 0.54, 0, 1)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_ejy62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173601742]
+scale = Vector2(0.755, 0.755)
+shape = SubResource("CircleShape2D_fglp6")
+
+[node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("3_2j1qa")]
+max_speed = 10.0
+deceleration = 1500.0
+
+[node name="Wander" type="Timer" parent="." unique_id=568020904]
+one_shot = true
