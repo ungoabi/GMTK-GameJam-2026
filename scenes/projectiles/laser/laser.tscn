@@ -9,6 +9,7 @@ size = Vector2(17, 4)
 
 [node name="Laser" unique_id=762825372 instance=ExtResource("1_6n5om")]
 script = ExtResource("2_q6ovb")
+speed = 300.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]
 position = Vector2(-1.5, 0)

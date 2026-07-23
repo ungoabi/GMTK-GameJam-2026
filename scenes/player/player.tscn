@@ -81,6 +81,7 @@ shape = SubResource("CircleShape2D_rs74b")
 [node name="Weapons" type="Node2D" parent="." unique_id=308187891]
 
 [node name="LaserGun" parent="Weapons" unique_id=1938063594 instance=ExtResource("5_p47bc")]
+fire_cooldown = 0.5
 
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_gmlin")]
 deceleration = 150.0
