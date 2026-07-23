@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var health: int = 10
 
 @export var min_wander_seconds: float = 0.2
 @export var max_wander_seconds: float = 0.8
@@ -17,11 +18,21 @@ func _physics_process(delta: float) -> void:
 		wander_timer.start()
 	movement.process_movement(direction, delta)
 	move_and_slide()
-
+	
+	#Detecting if health is low enough to cause death
+	if health<1:
+		die()
 
 func _start_random_wander_timer() -> void:
 	wander_timer.wait_time = randf_range(min_wander_seconds, max_wander_seconds)
 
-
 func _set_random_direction() -> void:
 	direction = Vector2.UP.rotated(randf() * TAU)
+
+#Called on projectiles when a collision occurs to deal damage
+func take_damage(damage):
+	health = health-damage
+
+#Called when health reaches less than 1
+func die():
+	queue_free()
