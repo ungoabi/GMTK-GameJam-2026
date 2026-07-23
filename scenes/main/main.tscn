@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4o6ejd3y3itj" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://wuso24b3tsaa" path="res://scenes/level/background/background.tscn" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dvc3x84p35o7s" path="res://scenes/entities/civilian/civilian.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node" unique_id=545323619]
 process_mode = 3
@@ -22,6 +23,9 @@ process_mode = 1
 position = Vector2(96, 61)
 
 [node name="Projectiles" type="Node2D" parent="World/Entity" unique_id=845012577]
+
+[node name="Enemy" parent="World/Entity" unique_id=457442979 instance=ExtResource("4_l3cfh")]
+position = Vector2(191, 149)
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 

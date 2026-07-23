@@ -9,6 +9,10 @@ var input_direction: Vector2 = Vector2.ZERO
 var input_shoot: bool = false
 
 
+func _ready() -> void:
+	add_to_group("player")
+
+
 func _physics_process(delta: float) -> void:
 	_gather_input()
 	movement.process_movement(input_direction, delta)
