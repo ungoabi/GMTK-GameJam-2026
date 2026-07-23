@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b1cei4nh7wn7x"
-path="res://.godot/imported/Pew.wav-f7495290cc89c1da760248a35a994eb1.sample"
+path="res://.godot/imported/Pew.wav-5262f033d8b29d9c3d26fd719a74e4d1.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/Pew.wav"
-dest_files=["res://.godot/imported/Pew.wav-f7495290cc89c1da760248a35a994eb1.sample"]
+source_file="res://assets/audio/sfx/weapons/Pew.wav"
+dest_files=["res://.godot/imported/Pew.wav-5262f033d8b29d9c3d26fd719a74e4d1.sample"]
 
 [params]
 
