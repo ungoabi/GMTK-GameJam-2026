@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ch7dvsn757ra7"]
+
+[ext_resource type="Script" uid="uid://dej0024n3tv8y" path="res://scenes/weapons/weapon.gd" id="1_nqevj"]
+
+[node name="Weapon" type="Node2D" unique_id=1938063594]
+script = ExtResource("1_nqevj")
+
+[node name="ProjectileSpawnpoints" type="Node2D" parent="." unique_id=90316817]
+
+[node name="Marker2D" type="Marker2D" parent="ProjectileSpawnpoints" unique_id=369726917]
+
+[node name="FireCooldown" type="Timer" parent="." unique_id=1145375820]
+one_shot = true

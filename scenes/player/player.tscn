@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://q4qnedni5a7w" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement/movement.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bkvhex1r1tbrc" path="res://assets/sprites/player/Player_spritesheet.png" id="2_lvxji"]
-[ext_resource type="AudioStream" uid="uid://b1cei4nh7wn7x" path="res://assets/audio/sfx/Pew.wav" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://cdvghh2nxpo6v" path="res://scenes/player/animation.gd" id="4_p47bc"]
+[ext_resource type="PackedScene" uid="uid://dkg83xonn0s1c" path="res://scenes/weapons/laser_gun.tscn" id="5_p47bc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs74b"]
 
@@ -39,10 +40,26 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
 _data = {
 &"RESET": SubResource("Animation_75vfm"),
-&"boost": SubResource("Animation_p47bc")
+&"boost": SubResource("Animation_p47bc"),
+&"idle": SubResource("Animation_0owmy")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=457442979]
@@ -50,7 +67,6 @@ top_level = true
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148868581]
-unique_name_in_owner = true
 texture_filter = 1
 rotation = 1.5707964
 texture = ExtResource("2_lvxji")
@@ -60,24 +76,19 @@ hframes = 8
 visible = false
 shape = SubResource("CircleShape2D_rs74b")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1087404782]
+
+[node name="Weapons" type="Node2D" parent="." unique_id=308187891]
+
+[node name="LaserGun" parent="Weapons" unique_id=1938063594 instance=ExtResource("5_p47bc")]
+
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_gmlin")]
 deceleration = 150.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=236606133]
-unique_name_in_owner = true
+[node name="Animation" type="Node" parent="." unique_id=1387252864]
+script = ExtResource("4_p47bc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=236606133]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_0owmy")
-
-[node name="LaserSpawn" type="Marker2D" parent="." unique_id=2052690699]
-unique_name_in_owner = true
-position = Vector2(15, 0)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1178205511]
-unique_name_in_owner = true
-stream = ExtResource("4_lvxji")
-volume_db = -10.0
-
-[node name="ShootCooldown" type="Timer" parent="." unique_id=1871097136]
-unique_name_in_owner = true
-wait_time = 0.5
-
-[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
+autoplay = &"idle"

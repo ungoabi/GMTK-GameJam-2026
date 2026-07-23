@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dkg83xonn0s1c"]
+
+[ext_resource type="PackedScene" uid="uid://ch7dvsn757ra7" path="res://scenes/weapons/weapon.tscn" id="1_12ilx"]
+[ext_resource type="Script" uid="uid://dexmvkkp5qlpg" path="res://scenes/weapons/laser_gun.gd" id="2_7otsp"]
+[ext_resource type="AudioStream" uid="uid://b1cei4nh7wn7x" path="res://assets/audio/sfx/Pew.wav" id="3_73kmh"]
+[ext_resource type="PackedScene" uid="uid://byxh35fivyobr" path="res://scenes/weapons/projectiles/laser/laser.tscn" id="3_n6l5x"]
+
+[node name="LaserGun" unique_id=1938063594 instance=ExtResource("1_12ilx")]
+script = ExtResource("2_7otsp")
+projectile_scene = ExtResource("3_n6l5x")
+fire_cooldown = 0.1
+weapon_sound = ExtResource("3_73kmh")
