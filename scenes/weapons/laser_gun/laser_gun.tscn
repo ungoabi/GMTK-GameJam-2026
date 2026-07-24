@@ -8,5 +8,4 @@
 [node name="LaserGun" unique_id=1938063594 instance=ExtResource("1_12ilx")]
 script = ExtResource("2_7otsp")
 projectile_scene = ExtResource("3_n6l5x")
-fire_cooldown = 0.1
 weapon_sound = ExtResource("3_73kmh")

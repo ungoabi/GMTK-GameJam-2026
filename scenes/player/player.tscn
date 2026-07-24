@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://q4qnedni5a7w" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement/movement.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bkvhex1r1tbrc" path="res://assets/sprites/player/Player_spritesheet.png" id="2_lvxji"]
+[ext_resource type="AudioStream" uid="uid://cxs7ru7shw43d" path="res://assets/audio/sfx/weapons/PlayerLaser.wav" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://cdvghh2nxpo6v" path="res://scenes/player/animation.gd" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dkg83xonn0s1c" path="res://scenes/weapons/laser_gun/laser_gun.tscn" id="5_p47bc"]
 
@@ -64,6 +65,8 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=457442979]
 top_level = true
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148868581]
@@ -73,18 +76,28 @@ texture = ExtResource("2_lvxji")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049034449]
-visible = false
 shape = SubResource("CircleShape2D_rs74b")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1087404782]
+position = Vector2(1, -2)
+scale = Vector2(0.43200606, 6.650782)
+zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = 0
+limit_right = 2500
+limit_bottom = 1500
+editor_draw_limits = true
 
 [node name="Weapons" type="Node2D" parent="." unique_id=308187891]
 
 [node name="LaserGun" parent="Weapons" unique_id=1938063594 instance=ExtResource("5_p47bc")]
 fire_cooldown = 0.5
+weapon_sound = ExtResource("4_75vfm")
 
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("2_gmlin")]
-deceleration = 150.0
+max_speed = 2000.0
+acceleration = 750.0
+deceleration = 1500.0
 
 [node name="Animation" type="Node" parent="." unique_id=1387252864]
 script = ExtResource("4_p47bc")

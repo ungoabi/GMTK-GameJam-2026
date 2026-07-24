@@ -66,6 +66,7 @@ top_level = true
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_in88q")
+health = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148868581]
 modulate = Color(1, 0.37, 0.37, 1)
@@ -75,7 +76,6 @@ texture = ExtResource("2_dxsuy")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049034449]
-visible = false
 shape = SubResource("CircleShape2D_rs74b")
 
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("3_0wdte")]

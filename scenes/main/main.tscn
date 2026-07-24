@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://btmvh6cad1lsq"]
 
+[ext_resource type="Script" uid="uid://oig6322gqcj5" path="res://scenes/main/spawnpoints.gd" id="1_6q06x"]
 [ext_resource type="PackedScene" uid="uid://4o6ejd3y3itj" path="res://scenes/player/player.tscn" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://wuso24b3tsaa" path="res://scenes/level/background/background.tscn" id="1_iuonh"]
+[ext_resource type="Texture2D" uid="uid://cibhoo7b1v0hw" path="res://assets/sprites/background/background.png" id="2_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dvc3x84p35o7s" path="res://scenes/entities/civilian/civilian.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
 
@@ -11,13 +12,38 @@ process_mode = 3
 [node name="World" type="Node2D" parent="." unique_id=1263326404]
 process_mode = 1
 
+[node name="Spawnpoints" type="Node2D" parent="World" unique_id=1154589166 node_paths=PackedStringArray("enemy")]
+script = ExtResource("1_6q06x")
+enemy = NodePath("../Entity/Enemy")
+
+[node name="Spawn1" type="Marker2D" parent="World/Spawnpoints" unique_id=2078515676]
+position = Vector2(-81, -53)
+
+[node name="Spawn 2" type="Marker2D" parent="World/Spawnpoints" unique_id=1058979335]
+position = Vector2(-88, 1569)
+
+[node name="Spawn 3" type="Marker2D" parent="World/Spawnpoints" unique_id=878155531]
+position = Vector2(2575, -31)
+
+[node name="Spawn 4" type="Marker2D" parent="World/Spawnpoints" unique_id=811270775]
+position = Vector2(2549, 1544)
+
+[node name="Spawntimer" type="Timer" parent="World/Spawnpoints" unique_id=1651259468]
+wait_time = 2.0
+autostart = true
+
 [node name="Level" type="Node2D" parent="World" unique_id=21942664]
 
-[node name="Background" parent="World/Level" unique_id=1723859892 instance=ExtResource("1_iuonh")]
+[node name="Background" type="Sprite2D" parent="World/Level" unique_id=577213983]
+position = Vector2(1245, 753.99994)
+scale = Vector2(8.043814, 6.4300475)
+texture = ExtResource("2_6q06x")
 
 [node name="Entity" type="Node2D" parent="World" unique_id=1025459119]
 
 [node name="Player" parent="World/Entity" unique_id=2040856127 instance=ExtResource("1_hyk8p")]
+position = Vector2(145.99997, 124.99994)
+scale = Vector2(1.0064473, 0.9903985)
 
 [node name="Civilian" parent="World/Entity" unique_id=2128872988 instance=ExtResource("3_k2fmo")]
 position = Vector2(96, 61)
@@ -58,3 +84,5 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="timeout" from="World/Spawnpoints/Spawntimer" to="World/Spawnpoints" method="_on_spawntimer_timeout"]

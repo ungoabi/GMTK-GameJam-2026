@@ -9,7 +9,8 @@ size = Vector2(17, 4)
 
 [node name="Laser" unique_id=762825372 instance=ExtResource("1_6n5om")]
 script = ExtResource("2_q6ovb")
-speed = 300.0
+speed = 1500.0
+damage = 2
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]
 position = Vector2(-1.5, 0)
@@ -18,3 +19,5 @@ shape = SubResource("RectangleShape2D_nop1w")
 [node name="Sprite2D" parent="." index="1" unique_id=644418234]
 rotation = 4.712389
 texture = ExtResource("3_i2164")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

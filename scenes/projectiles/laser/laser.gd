@@ -11,3 +11,4 @@ func _move(delta: float) -> void:
 	var distance: float = speed * delta
 	position += direction * distance
 	traveled_distance += distance
+	

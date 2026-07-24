@@ -1,5 +1,7 @@
 extends Weapon
 
+func _ready() -> void:
+	upgrade()
 
 func _spawn_projectile(marker: Marker2D) -> void:
 	var offset: float = _random_offset(0.1)
@@ -9,3 +11,9 @@ func _spawn_projectile(marker: Marker2D) -> void:
 	projectile_container.add_child(new_projectile)
 	new_projectile.direction = Vector2.RIGHT.rotated(marker.global_rotation + offset)
 	
+func apply_upgrade():
+	#I don't know why I have to do this. fire_cooldown starts at 0.5 for some reason even though it's set to 1 in the editor
+	fire_cooldown = 1
+	var new_fire_cooldown = fire_cooldown - (weapon_level * 0.2)
+	fire_cooldown_timer.wait_time = new_fire_cooldown
+	print("upgrade applied. cooldown is"+str(fire_cooldown_timer.wait_time))
