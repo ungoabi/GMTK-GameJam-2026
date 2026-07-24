@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b7m55gqjlq70p" path="res://assets/sprites/projectiles/Laser.png" id="3_i2164"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nop1w"]
-size = Vector2(17, 4)
+size = Vector2(17, 7)
 
 [node name="Laser" unique_id=762825372 instance=ExtResource("1_6n5om")]
+scale = Vector2(2, 2)
 script = ExtResource("2_q6ovb")
 speed = 1500.0
 damage = 2

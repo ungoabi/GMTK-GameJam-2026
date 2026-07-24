@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cdvghh2nxpo6v" path="res://scenes/player/animation.gd" id="4_7gxlw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs74b"]
+radius = 19.026299
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001

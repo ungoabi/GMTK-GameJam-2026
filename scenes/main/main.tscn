@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oig6322gqcj5" path="res://scenes/main/spawnpoints.gd" id="1_6q06x"]
 [ext_resource type="PackedScene" uid="uid://4o6ejd3y3itj" path="res://scenes/player/player.tscn" id="1_hyk8p"]
-[ext_resource type="Texture2D" uid="uid://cibhoo7b1v0hw" path="res://assets/sprites/background/background.png" id="2_6q06x"]
+[ext_resource type="Texture2D" uid="uid://dajvro13rswhn" path="res://assets/sprites/background/test.png" id="2_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dvc3x84p35o7s" path="res://scenes/entities/civilian/civilian.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
 
@@ -12,9 +12,8 @@ process_mode = 3
 [node name="World" type="Node2D" parent="." unique_id=1263326404]
 process_mode = 1
 
-[node name="Spawnpoints" type="Node2D" parent="World" unique_id=1154589166 node_paths=PackedStringArray("enemy")]
+[node name="Spawnpoints" type="Node2D" parent="World" unique_id=1154589166]
 script = ExtResource("1_6q06x")
-enemy = NodePath("../Entity/Enemy")
 
 [node name="Spawn1" type="Marker2D" parent="World/Spawnpoints" unique_id=2078515676]
 position = Vector2(-81, -53)
@@ -35,8 +34,8 @@ autostart = true
 [node name="Level" type="Node2D" parent="World" unique_id=21942664]
 
 [node name="Background" type="Sprite2D" parent="World/Level" unique_id=577213983]
-position = Vector2(1245, 753.99994)
-scale = Vector2(8.043814, 6.4300475)
+position = Vector2(1242.9521, 739.59155)
+scale = Vector2(1.0336385, 1.0845447)
 texture = ExtResource("2_6q06x")
 
 [node name="Entity" type="Node2D" parent="World" unique_id=1025459119]
