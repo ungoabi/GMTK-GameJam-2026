@@ -1,7 +1,6 @@
-class_name Pickup
 extends Area2D
 
-
+@onready var pickup_sfx: AudioStream = preload("res://assets/audio/sfx/powerup/powerUp (2).wav")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,4 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("player"):
 		body.upgrade_laser()
+		Audio.play_sfx(pickup_sfx)
 		queue_free()

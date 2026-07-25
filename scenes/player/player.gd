@@ -4,15 +4,14 @@ extends CharacterBody2D
 @onready var animation: Node = $Animation
 @onready var weapons: Node = $Weapons
 @onready var camera: Camera2D = $Camera2D
+@onready var upgrade_cooldown: Timer = $upgrade_cooldown
 
 var input_direction: Vector2 = Vector2.ZERO
 var input_shoot: bool = false
 var input_debug_upgrade: bool = false
 
-
-#move this to a shield scene
-var shield_max: int
-var shield_cd: int
+var can_upgrade: bool = true
+var level: int = 1
 
 func _ready() -> void:
 	add_to_group("player")
@@ -56,9 +55,25 @@ func upgrade_laser():
 	for weapon: Weapon in weapons.get_children():
 		if weapon.is_in_group("laser"):
 			weapon.upgrade()
+			can_upgrade=false
+			upgrade_cooldown.start()
 			
 func _on_fuel_timer_timeout() -> void:
 	GameStats.player_fuel-=1
 	
+func take_damage(damage):
+	GameStats.player_fuel -= damage
+	Audio.play_sfx(preload("res://assets/audio/sfx/player/hitHurt (3).wav"))
+
+
 func die():
 	pass
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		take_damage(1)
+		body.queue_free()
+
+
+func _on_upgrade_cooldown_timeout() -> void:
+	can_upgrade = true

@@ -63,6 +63,9 @@ _data = {
 &"idle": SubResource("Animation_0owmy")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_75vfm"]
+radius = 14.035668
+
 [node name="Player" type="CharacterBody2D" unique_id=457442979]
 top_level = true
 collision_layer = 2
@@ -111,4 +114,14 @@ autoplay = &"idle"
 wait_time = 0.5
 autostart = true
 
+[node name="hurtbox" type="Area2D" parent="." unique_id=750067718]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=515721040]
+shape = SubResource("CircleShape2D_75vfm")
+
+[node name="upgrade_cooldown" type="Timer" parent="." unique_id=143125290]
+wait_time = 15.0
+
 [connection signal="timeout" from="FuelTimer" to="." method="_on_fuel_timer_timeout"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="upgrade_cooldown" to="." method="_on_upgrade_cooldown_timeout"]

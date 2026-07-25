@@ -25,6 +25,7 @@ func _ready() -> void:
 	add_child(music_player)
 	
 	play_music(playlist[0])
+	music_player.volume_db-=10
 	music_player.finished.connect(_on_finished)
 
 
@@ -59,6 +60,7 @@ func _play_one_shot(stream: AudioStream, bus: Bus, mode: Node.ProcessMode, pitch
 	player.process_mode = mode
 	player.pitch_scale = _pitch_variance(pitch_variance)
 	add_child(player)
+	player.volume_db-=10
 	player.play()
 
 

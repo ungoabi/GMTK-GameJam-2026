@@ -1,8 +1,11 @@
 extends Weapon
 
+@onready var player = $"../.."
+
 func _ready() -> void:
 	add_to_group("laser")
-	upgrade()
+	weapon_level=1
+	
 
 func _spawn_projectile(marker: Marker2D) -> void:
 	var offset: float = _random_offset(0.1)
@@ -17,4 +20,6 @@ func apply_upgrade():
 	fire_cooldown = 1
 	var new_fire_cooldown = fire_cooldown - (weapon_level * 0.15)
 	fire_cooldown_timer.wait_time = new_fire_cooldown
-	print("upgrade applied. cooldown is"+str(fire_cooldown_timer.wait_time))
+	GameStats.difficulty+=1
+	player.level = weapon_level
+	print("upgrade applied. cooldown is"+str(fire_cooldown_timer.wait_time)+" World diff:"+str(GameStats.difficulty))

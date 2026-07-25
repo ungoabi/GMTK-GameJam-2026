@@ -18,10 +18,12 @@ func _process(delta: float) -> void:
 
 
 func _on_spawntimer_timeout() -> void:
-	var spawn_location:Vector2 = spawnpoints[randi_range(0,3)].global_position
-	var new_enemy = enemy.instantiate()
-	new_enemy.global_position = spawn_location
-	entity.add_child(new_enemy)
+	for i in GameStats.difficulty:
+		if randi_range(0,4)>1:
+			var spawn_location:Vector2 = spawnpoints[randi_range(0,3)].global_position
+			var new_enemy = enemy.instantiate()
+			new_enemy.global_position = Vector2(spawn_location.x+randi_range(-250,250), spawn_location.y+randi_range(-250,250))
+			entity.add_child(new_enemy)
 	
 	
 	pass # Replace with function body.

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bkvhex1r1tbrc" path="res://assets/sprites/player/Player_spritesheet.png" id="2_dxsuy"]
 [ext_resource type="PackedScene" uid="uid://xmjmw0jhintb" path="res://scenes/components/movement/movement.tscn" id="3_0wdte"]
 [ext_resource type="Script" uid="uid://cdvghh2nxpo6v" path="res://scenes/player/animation.gd" id="4_7gxlw"]
+[ext_resource type="PackedScene" uid="uid://dkg83xonn0s1c" path="res://scenes/weapons/laser_gun/laser_gun.tscn" id="5_dxsuy"]
+[ext_resource type="PackedScene" uid="uid://c5xwpfs266hbd" path="res://scenes/projectiles/laser_enemy/laser_enemy.tscn" id="6_0wdte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs74b"]
 radius = 19.026299
@@ -68,6 +70,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_in88q")
 health = 2
+laser_range = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148868581]
 modulate = Color(1, 0.37, 0.37, 1)
@@ -80,8 +83,8 @@ hframes = 8
 shape = SubResource("CircleShape2D_rs74b")
 
 [node name="Movement" parent="." unique_id=1935556351 instance=ExtResource("3_0wdte")]
-max_speed = 5000.0
-deceleration = 500.0
+max_speed = 750.0
+deceleration = 700.0
 
 [node name="Animation" type="Node" parent="." unique_id=1387252864]
 script = ExtResource("4_7gxlw")
@@ -90,3 +93,8 @@ script = ExtResource("4_7gxlw")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_0owmy")
 autoplay = &"idle"
+
+[node name="LaserGun" parent="." unique_id=1938063594 instance=ExtResource("5_dxsuy")]
+position = Vector2(10, 0)
+projectile_scene = ExtResource("6_0wdte")
+fire_cooldown = 2.0

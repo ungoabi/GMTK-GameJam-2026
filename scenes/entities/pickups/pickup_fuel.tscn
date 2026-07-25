@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://by0xk4w3oia1j"]
+
+[ext_resource type="Script" uid="uid://cxgvp0sgp73s3" path="res://scenes/entities/pickups/pickup_fuel.gd" id="1_wehv6"]
+[ext_resource type="Texture2D" uid="uid://c20ngxut7c58a" path="res://assets/sprites/entities/fuel-Sheet.png" id="2_8jule"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wehv6"]
+radius = 10.676579
+height = 34.113834
+
+[sub_resource type="Animation" id="Animation_wehv6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_n7gfq"]
+resource_name = "despawn"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_8jule"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7gfq"]
+_data = {
+&"RESET": SubResource("Animation_wehv6"),
+&"despawn": SubResource("Animation_n7gfq"),
+&"idle": SubResource("Animation_8jule")
+}
+
+[node name="Pickup_fuel" type="Area2D" unique_id=1100804757]
+scale = Vector2(1.4986074, 1.5243083)
+collision_mask = 2
+script = ExtResource("1_wehv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1261593343]
+scale = Vector2(0.8573424, 0.8346531)
+texture = ExtResource("2_8jule")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090411416]
+shape = SubResource("CapsuleShape2D_wehv6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=779403378]
+libraries/ = SubResource("AnimationLibrary_n7gfq")
+
+[node name="Life_Timer" type="Timer" parent="." unique_id=1240817802]
+wait_time = 2.5
+
+[node name="Despawn_Timer" type="Timer" parent="." unique_id=1669086809]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life_Timer" to="." method="_on_life_timer_timeout"]
+[connection signal="timeout" from="Despawn_Timer" to="." method="_on_despawn_timer_timeout"]
