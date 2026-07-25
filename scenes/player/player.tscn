@@ -106,3 +106,9 @@ script = ExtResource("4_p47bc")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_0owmy")
 autoplay = &"idle"
+
+[node name="FuelTimer" type="Timer" parent="." unique_id=324591487]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="FuelTimer" to="." method="_on_fuel_timer_timeout"]

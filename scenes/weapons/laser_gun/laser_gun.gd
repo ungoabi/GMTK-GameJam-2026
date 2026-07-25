@@ -1,6 +1,7 @@
 extends Weapon
 
 func _ready() -> void:
+	add_to_group("laser")
 	upgrade()
 
 func _spawn_projectile(marker: Marker2D) -> void:
@@ -14,6 +15,6 @@ func _spawn_projectile(marker: Marker2D) -> void:
 func apply_upgrade():
 	#I don't know why I have to do this. fire_cooldown starts at 0.5 for some reason even though it's set to 1 in the editor
 	fire_cooldown = 1
-	var new_fire_cooldown = fire_cooldown - (weapon_level * 0.2)
+	var new_fire_cooldown = fire_cooldown - (weapon_level * 0.15)
 	fire_cooldown_timer.wait_time = new_fire_cooldown
 	print("upgrade applied. cooldown is"+str(fire_cooldown_timer.wait_time))

@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://dcf7jgwartgnu"
 [autoload]
 
 Audio="*uid://dorj4qkvog5l7"
+GameStats="*uid://dh0ra4rx5m45o"
 
 [display]
 

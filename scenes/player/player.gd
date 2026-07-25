@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @onready var movement: Movement = $Movement
 @onready var animation: Node = $Animation
 @onready var weapons: Node = $Weapons
@@ -10,7 +9,6 @@ var input_direction: Vector2 = Vector2.ZERO
 var input_shoot: bool = false
 var input_debug_upgrade: bool = false
 
-var fuel: int
 
 #move this to a shield scene
 var shield_max: int
@@ -39,6 +37,9 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	animation.animate()
+	
+	if GameStats.player_fuel<1:
+		die()
 
 
 func _gather_input() -> void:
@@ -47,7 +48,17 @@ func _gather_input() -> void:
 	#debug remove later
 	input_debug_upgrade = Input.is_action_just_pressed("debug_upgrade")
 
-
 func _shoot_weapons() -> void:
 	for weapon: Weapon in weapons.get_children():
 		weapon.shoot()
+		
+func upgrade_laser():
+	for weapon: Weapon in weapons.get_children():
+		if weapon.is_in_group("laser"):
+			weapon.upgrade()
+			
+func _on_fuel_timer_timeout() -> void:
+	GameStats.player_fuel-=1
+	
+func die():
+	queue_free()

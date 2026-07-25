@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://oig6322gqcj5" path="res://scenes/main/spawnpoints.gd" id="1_6q06x"]
 [ext_resource type="PackedScene" uid="uid://4o6ejd3y3itj" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://dajvro13rswhn" path="res://assets/sprites/background/test.png" id="2_6q06x"]
-[ext_resource type="PackedScene" uid="uid://dvc3x84p35o7s" path="res://scenes/entities/civilian/civilian.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
+[ext_resource type="Script" uid="uid://bnapfrrroj8nr" path="res://scenes/main/fuelmeter.gd" id="5_ow5a4"]
+[ext_resource type="FontFile" uid="uid://dpl3t4707x302" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_hujxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q06x"]
+bg_color = Color(0.578085, 0.38297984, 0.18087208, 1)
 
 [node name="Main" type="Node" unique_id=545323619]
 process_mode = 3
@@ -44,13 +48,12 @@ texture = ExtResource("2_6q06x")
 position = Vector2(145.99997, 124.99994)
 scale = Vector2(1.0064473, 0.9903985)
 
-[node name="Civilian" parent="World/Entity" unique_id=2128872988 instance=ExtResource("3_k2fmo")]
-position = Vector2(96, 61)
-
 [node name="Projectiles" type="Node2D" parent="World/Entity" unique_id=845012577]
 
 [node name="Enemy" parent="World/Entity" unique_id=457442979 instance=ExtResource("4_l3cfh")]
 position = Vector2(191, 149)
+
+[node name="Pickups" type="Node2D" parent="World/Entity" unique_id=1110522398]
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 
@@ -64,11 +67,39 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Fuelmeter" type="Control" parent="Hud/Hud" unique_id=53062728]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ow5a4")
+
+[node name="ProgressBar" type="ProgressBar" parent="Hud/Hud/Fuelmeter" unique_id=1992671675]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 313.0
+offset_right = 521.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_constants/outline_size = -1
+theme_override_styles/background = SubResource("StyleBoxFlat_6q06x")
+step = 1.0
+
+[node name="Label" type="Label" parent="Hud/Hud/Fuelmeter" unique_id=1189873776]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 299.0
+offset_right = 349.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("6_hujxm")
+theme_override_font_sizes/font_size = 9
+text = "FUEL"
+
 [node name="Pause" type="CanvasLayer" parent="." unique_id=215865766]
 process_mode = 2
 layer = 20
 
 [node name="Pause" type="Control" parent="Pause" unique_id=1890377558]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -79,6 +110,7 @@ process_mode = 3
 layer = 40
 
 [node name="Transition" type="Control" parent="Transition" unique_id=232521085]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
