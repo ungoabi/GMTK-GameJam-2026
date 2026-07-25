@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j1t8g45krrb4"
+path="res://.godot/imported/Countdown to the End.mp3-0b3794ffc8b8936d8af5821c4baa589b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Countdown to the End.mp3"
+dest_files=["res://.godot/imported/Countdown to the End.mp3-0b3794ffc8b8936d8af5821c4baa589b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

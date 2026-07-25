@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvk3klbqgb1l4"
+path="res://.godot/imported/Countdown Boss Intro.mp3-1dd428c588bb7a89f80c97bd2a58a0ed.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Countdown Boss Intro.mp3"
+dest_files=["res://.godot/imported/Countdown Boss Intro.mp3-1dd428c588bb7a89f80c97bd2a58a0ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

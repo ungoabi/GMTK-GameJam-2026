@@ -61,4 +61,4 @@ func _on_fuel_timer_timeout() -> void:
 	GameStats.player_fuel-=1
 	
 func die():
-	queue_free()
+	pass

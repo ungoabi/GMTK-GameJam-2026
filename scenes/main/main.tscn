@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btmvh6cad1lsq"]
 
 [ext_resource type="Script" uid="uid://oig6322gqcj5" path="res://scenes/main/spawnpoints.gd" id="1_6q06x"]
+[ext_resource type="Script" uid="uid://dsach1fpcgsdh" path="res://scenes/main/world.gd" id="1_hujxm"]
 [ext_resource type="PackedScene" uid="uid://4o6ejd3y3itj" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://dajvro13rswhn" path="res://assets/sprites/background/test.png" id="2_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
@@ -15,6 +16,7 @@ process_mode = 3
 
 [node name="World" type="Node2D" parent="." unique_id=1263326404]
 process_mode = 1
+script = ExtResource("1_hujxm")
 
 [node name="Spawnpoints" type="Node2D" parent="World" unique_id=1154589166]
 script = ExtResource("1_6q06x")

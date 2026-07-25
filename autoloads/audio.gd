@@ -13,11 +13,19 @@ const default_pitch_variance: float = 0.1
 
 var music_player: AudioStreamPlayer
 
+var playlist: Array[AudioStream] = [
+	preload("res://assets/audio/music/Countdown to the End.mp3"),
+	preload("res://assets/audio/music/Countdown Boss Intro.mp3"),
+	preload("res://assets/audio/music/Countdown Boss Fight.mp3")
+]
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = bus_map[Bus.MUSIC]
 	add_child(music_player)
+	
+	play_music(playlist[0])
+	music_player.finished.connect(_on_finished)
 
 
 func play_music(stream: AudioStream) -> void:
@@ -66,3 +74,9 @@ func _pitch_variance(variance: float) -> float:
 	if variance == 0:
 		return 1
 	return max(0.01, randf_range(1-variance, 1+variance))
+	
+func _on_finished():
+	if music_player.stream == playlist[0]:
+		play_music(playlist[1])
+	else:
+		play_music(playlist[2])
