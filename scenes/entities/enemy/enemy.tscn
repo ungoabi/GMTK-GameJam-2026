@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5xwpfs266hbd" path="res://scenes/projectiles/laser_enemy/laser_enemy.tscn" id="6_0wdte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs74b"]
-radius = 19.026299
+radius = 18.027756
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001

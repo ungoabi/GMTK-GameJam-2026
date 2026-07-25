@@ -11,8 +11,8 @@ size = Vector2(17, 3.4869246)
 scale = Vector2(1.6549999, 4.0149994)
 collision_mask = 2
 script = ExtResource("2_7gtgb")
-speed = 500.0
-damage = 5
+speed = 700.0
+damage = 10
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]
 position = Vector2(-1.5, 5.938197e-08)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
 [ext_resource type="Script" uid="uid://bnapfrrroj8nr" path="res://scenes/main/fuelmeter.gd" id="5_ow5a4"]
 [ext_resource type="FontFile" uid="uid://dpl3t4707x302" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_hujxm"]
+[ext_resource type="Script" uid="uid://bjx5axte7pgy4" path="res://scenes/main/time_label.gd" id="8_yyfjg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q06x"]
 bg_color = Color(0.578085, 0.38297984, 0.18087208, 1)
@@ -59,6 +60,11 @@ position = Vector2(191, 149)
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 
+[node name="Game_Timer" type="Timer" parent="World" unique_id=290902407]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
 [node name="Hud" type="CanvasLayer" parent="." unique_id=363082753]
 process_mode = 1
 layer = 20
@@ -71,8 +77,10 @@ offset_bottom = 40.0
 
 [node name="Fuelmeter" type="Control" parent="Hud/Hud" unique_id=53062728]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -7.0
+offset_top = -1.0
+offset_right = 33.0
+offset_bottom = 21.0
 script = ExtResource("5_ow5a4")
 
 [node name="ProgressBar" type="ProgressBar" parent="Hud/Hud/Fuelmeter" unique_id=1992671675]
@@ -95,6 +103,15 @@ offset_bottom = 312.0
 theme_override_fonts/font = ExtResource("6_hujxm")
 theme_override_font_sizes/font_size = 9
 text = "FUEL"
+
+[node name="Time_Label" type="Label" parent="Hud/Hud" unique_id=598816831]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 12.0
+offset_right = 358.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("6_hujxm")
+script = ExtResource("8_yyfjg")
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=215865766]
 process_mode = 2
