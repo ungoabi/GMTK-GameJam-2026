@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kf1u7hq2cc1g"
+path="res://.godot/imported/Countdown Game Over(1).mp3-ab2a83a275502f44e49839d607b39b8b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Countdown Game Over(1).mp3"
+dest_files=["res://.godot/imported/Countdown Game Over(1).mp3-ab2a83a275502f44e49839d607b39b8b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

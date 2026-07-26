@@ -10,9 +10,10 @@ signal petunia
 func _ready() -> void:
 	pass
 
-#func _process(delta: float) -> void:
-	#if player_fuel<1:
-		#reset()
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		reset()
+	
 		
 func reset():
 	Audio.stop_music()
@@ -20,3 +21,4 @@ func reset():
 	player_fuel = 100
 	difficulty = 2
 	get_tree().reload_current_scene()
+	

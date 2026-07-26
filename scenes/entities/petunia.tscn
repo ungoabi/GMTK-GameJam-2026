@@ -124,7 +124,7 @@ _data = {
 
 [node name="Petunia" type="CharacterBody2D" unique_id=1402145885]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_3nxlx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218059581]
@@ -142,6 +142,18 @@ root_node = NodePath("../CollisionShape2D")
 libraries/ = SubResource("AnimationLibrary_w46jn")
 
 [node name="Attack_Timer" type="Timer" parent="." unique_id=1339635632]
-autostart = true
+wait_time = 2.0
+
+[node name="GunL" type="Marker2D" parent="." unique_id=1810222991]
+position = Vector2(502, 162)
+
+[node name="GunR" type="Marker2D" parent="." unique_id=1769993429]
+position = Vector2(-501, 160)
+
+[node name="CannonL" type="Marker2D" parent="." unique_id=1060617496]
+position = Vector2(-622, 157)
+
+[node name="CannonR" type="Marker2D" parent="." unique_id=782552694]
+position = Vector2(622, 150)
 
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]

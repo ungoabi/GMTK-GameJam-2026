@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var upgrade_cooldown: Timer = $upgrade_cooldown
 @onready var fuel_timer: Timer = $FuelTimer
 @onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
+@onready var game_over_music: AudioStream = preload("res://assets/audio/music/Countdown Game Over(1).mp3")
+
+signal player_death
 
 var input_direction: Vector2 = Vector2.ZERO
 var input_shoot: bool = false
@@ -70,7 +73,13 @@ func take_damage(damage):
 
 
 func die():
+	player_death.emit()
+	Audio.play_music(game_over_music)
 	animation_player.play("explode")
+	await animation_player.animation_finished
+	animation_player.stop()
+	await Audio.music_player.finished
+	movement.max_speed=0
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cnnh5mmmihnvd"]
+
+[ext_resource type="PackedScene" uid="uid://4cyaj452v28u" path="res://scenes/projectiles/projectile.tscn" id="1_jyg42"]
+[ext_resource type="Script" uid="uid://cr5j14f7kq5ni" path="res://scenes/projectiles/beam/laser_beam.gd" id="2_7amn5"]
+[ext_resource type="Texture2D" uid="uid://baw0450vu0m72" path="res://assets/sprites/projectiles/plasma_lazer-Sheet.png" id="3_fk8p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nop1w"]
+size = Vector2(17, 3.4869246)
+
+[sub_resource type="Animation" id="Animation_fjnih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6qejs"]
+resource_name = "idle"
+length = 0.16666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.099999994, 0.13333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycrvn"]
+_data = {
+&"RESET": SubResource("Animation_fjnih"),
+&"idle": SubResource("Animation_6qejs")
+}
+
+[node name="Laser_beam" unique_id=762825372 instance=ExtResource("1_jyg42")]
+scale = Vector2(1.6549999, 4.0149994)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_7amn5")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]
+position = Vector2(-1.5, 5.938197e-08)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_nop1w")
+
+[node name="Sprite2D" parent="." index="1" unique_id=644418234]
+rotation = 4.712389
+texture = ExtResource("3_fk8p8")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1393148793]
+libraries/ = SubResource("AnimationLibrary_ycrvn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
