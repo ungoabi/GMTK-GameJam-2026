@@ -10,7 +10,7 @@ size = Vector2(15.5, 7)
 [node name="Laser" unique_id=762825372 instance=ExtResource("1_6n5om")]
 scale = Vector2(2, 2)
 script = ExtResource("2_q6ovb")
-speed = 1750.0
+speed = 1600.0
 damage = 2
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]

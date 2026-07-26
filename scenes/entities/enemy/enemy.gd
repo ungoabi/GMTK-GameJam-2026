@@ -17,10 +17,11 @@ var can_shoot: bool = false
 func _ready() -> void:
 	add_to_group("enemy")
 	player = get_tree().get_first_node_in_group("player") as Node2D
+	GameStats.petunia.connect(_on_petunia_spawn)
 	
 	animation_player.play("boost")
 	
-	if randi_range(0,3) < 1:
+	if randi_range(0,2) < 1:
 		can_shoot = true
 	if can_shoot == false:
 		laser.queue_free()
@@ -66,3 +67,6 @@ func die():
 	await animation_player.animation_finished
 	
 	queue_free()
+
+func _on_petunia_spawn():
+	die()

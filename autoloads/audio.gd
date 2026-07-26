@@ -24,7 +24,7 @@ func _ready() -> void:
 	music_player.bus = bus_map[Bus.MUSIC]
 	add_child(music_player)
 	_start_bgm()
-	music_player.volume_db-=10
+	music_player.volume_db-=7
 
 
 func play_music(stream: AudioStream) -> void:
