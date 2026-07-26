@@ -20,8 +20,8 @@ func _ready() -> void:
 	
 	animation_player.play("boost")
 	
-	if randi_range(0,1) == 1:
-		can_shoot = randi_range(0,1)
+	if randi_range(0,3) < 1:
+		can_shoot = true
 	if can_shoot == false:
 		laser.queue_free()
 	
@@ -49,6 +49,7 @@ func take_damage(damage):
 
 func die():
 	
+	animation_player.play("explode")
 	
 	if !can_shoot and randi_range(0,1)>0:
 		var new_fuel_pickup = fuel_pickup.instantiate()
@@ -61,7 +62,6 @@ func die():
 		entity.add_child(new_upgrade)
 	
 	can_shoot=false
-	animation_player.play("explode")
 	Audio.play_sfx(preload("res://assets/audio/sfx/explode/explosion (6).wav"))
 	await animation_player.animation_finished
 	

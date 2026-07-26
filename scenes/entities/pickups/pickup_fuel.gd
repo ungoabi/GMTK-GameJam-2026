@@ -20,7 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("fuel pickup collided")
 	
 	if body.is_in_group("player"):
-		GameStats.player_fuel+=5
+		GameStats.player_fuel+=7
 		Audio.play_sfx(pickup_sfx)
 		queue_free()
 

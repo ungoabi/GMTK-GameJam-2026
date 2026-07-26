@@ -42,6 +42,7 @@ autostart = true
 [node name="Level" type="Node2D" parent="World" unique_id=21942664]
 
 [node name="Background" type="Sprite2D" parent="World/Level" unique_id=577213983]
+z_index = -10
 position = Vector2(1242.9521, 739.59155)
 scale = Vector2(1.0336385, 1.0845447)
 texture = ExtResource("2_6q06x")
@@ -49,18 +50,21 @@ texture = ExtResource("2_6q06x")
 [node name="Entity" type="Node2D" parent="World" unique_id=1025459119]
 
 [node name="Player" parent="World/Entity" unique_id=2040856127 instance=ExtResource("1_hyk8p")]
-position = Vector2(145.99997, 124.99994)
+position = Vector2(1285, 762)
 scale = Vector2(1.0064473, 0.9903985)
+
+[node name="Petunia" parent="World/Entity" unique_id=1402145885 instance=ExtResource("6_b1x3f")]
+position = Vector2(1231, 404.00003)
 
 [node name="Projectiles" type="Node2D" parent="World/Entity" unique_id=845012577]
 
 [node name="Enemy" parent="World/Entity" unique_id=457442979 instance=ExtResource("4_l3cfh")]
-position = Vector2(191, 149)
+position = Vector2(841, 525)
+
+[node name="Enemy2" parent="World/Entity" unique_id=1158012664 instance=ExtResource("4_l3cfh")]
+position = Vector2(1792, 1060)
 
 [node name="Pickups" type="Node2D" parent="World/Entity" unique_id=1110522398]
-
-[node name="Petunia" parent="World/Entity" unique_id=1402145885 instance=ExtResource("6_b1x3f")]
-position = Vector2(855, 109)
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 
@@ -80,6 +84,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Fuelmeter" type="Control" parent="Hud/Hud" unique_id=53062728]
+modulate = Color(0.9984776, 0.9984776, 0.9984776, 0.33333334)
 anchors_preset = 0
 offset_left = -7.0
 offset_top = -1.0

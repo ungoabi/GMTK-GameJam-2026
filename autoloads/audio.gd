@@ -61,7 +61,7 @@ func _play_one_shot(stream: AudioStream, bus: Bus, mode: Node.ProcessMode, pitch
 	player.process_mode = mode
 	player.pitch_scale = _pitch_variance(pitch_variance)
 	add_child(player)
-	player.volume_db-=10
+	player.volume_db-=15
 	player.play()
 
 

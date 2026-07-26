@@ -41,6 +41,7 @@ func _process(_delta: float) -> void:
 		animation.animate()
 	if GameStats.player_fuel<1:
 		die()
+		
 
 
 func _gather_input() -> void:
