@@ -24,7 +24,7 @@ func _ready() -> void:
 	music_player.bus = bus_map[Bus.MUSIC]
 	add_child(music_player)
 	_start_bgm()
-	music_player.volume_db-=7
+	music_player.volume_db-=5
 
 
 func play_music(stream: AudioStream) -> void:
@@ -61,7 +61,7 @@ func _play_one_shot(stream: AudioStream, bus: Bus, mode: Node.ProcessMode, pitch
 	player.process_mode = mode
 	player.pitch_scale = _pitch_variance(pitch_variance)
 	add_child(player)
-	player.volume_db-=15
+	player.volume_db-=20
 	player.play()
 
 
