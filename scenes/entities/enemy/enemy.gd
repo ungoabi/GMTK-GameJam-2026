@@ -49,7 +49,8 @@ func take_damage(damage):
 
 func die():
 	
-	if !can_shoot:
+	
+	if !can_shoot and randi_range(0,1)>0:
 		var new_fuel_pickup = fuel_pickup.instantiate()
 		new_fuel_pickup.global_position = global_position
 		entity.add_child(new_fuel_pickup)

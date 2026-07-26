@@ -43,7 +43,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_qek5x"]
 resource_name = "explode"
-length = 0.53333336
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,7 +130,6 @@ libraries/ = SubResource("AnimationLibrary_0owmy")
 autoplay = &"idle"
 
 [node name="FuelTimer" type="Timer" parent="." unique_id=324591487]
-wait_time = 0.5
 autostart = true
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=750067718]
