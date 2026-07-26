@@ -43,7 +43,7 @@ func stop_music() -> void:
 
 func _start_bgm():
 	play_music(playlist[0])
-	music_player.finished.connect(_on_finished)
+	music_player.finished.connect(_on_bgm_finished)
 
 func play_sfx(stream: AudioStream, pitch_variance: float = default_pitch_variance) -> void:
 	_play_one_shot(stream, Bus.SFX, Node.PROCESS_MODE_INHERIT, pitch_variance)
@@ -61,7 +61,7 @@ func _play_one_shot(stream: AudioStream, bus: Bus, mode: Node.ProcessMode, pitch
 	player.process_mode = mode
 	player.pitch_scale = _pitch_variance(pitch_variance)
 	add_child(player)
-	player.volume_db-=20
+	player.volume_db-=17
 	player.play()
 
 
@@ -78,7 +78,7 @@ func _pitch_variance(variance: float) -> float:
 		return 1
 	return max(0.01, randf_range(1-variance, 1+variance))
 	
-func _on_finished():
+func _on_bgm_finished():
 	if music_player.stream == playlist[0]:
 		play_music(playlist[1])
 	else:

@@ -10,12 +10,16 @@
 [ext_resource type="FontFile" uid="uid://dpl3t4707x302" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bjx5axte7pgy4" path="res://scenes/main/time_label.gd" id="8_yyfjg"]
 [ext_resource type="Script" uid="uid://c2gch8i8cmys3" path="res://scenes/main/game_over_label.gd" id="10_a8run"]
+[ext_resource type="Script" uid="uid://05cex8rbjomr" path="res://scenes/main/win_label.gd" id="11_ouso4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q06x"]
 bg_color = Color(0.578085, 0.38297984, 0.18087208, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1x3f"]
 bg_color = Color(0.724733, 0, 0.19521487, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g08m7"]
+bg_color = Color(0.43709967, 0.93509054, 0.28889525, 1)
 
 [node name="Main" type="Node" unique_id=545323619]
 process_mode = 3
@@ -139,6 +143,20 @@ OVER
 press R to restart"
 horizontal_alignment = 1
 script = ExtResource("10_a8run")
+
+[node name="Win_Label" type="Label" parent="Hud/Hud" unique_id=775986587]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 67.0
+offset_right = 441.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("6_hujxm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g08m7")
+text = "YOU
+WIN
+press R to restart"
+horizontal_alignment = 1
+script = ExtResource("11_ouso4")
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=215865766]
 process_mode = 2

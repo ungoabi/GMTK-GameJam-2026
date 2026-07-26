@@ -10,6 +10,9 @@ extends CharacterBody2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var hit_sfx: AudioStream = preload("res://assets/audio/sfx/player/hitHurt (2).wav")
 @onready var death_sfx: AudioStream = preload("res://assets/audio/sfx/player/death_explosion.wav")
+@onready var win_music: AudioStream = preload("res://assets/audio/music/Countdown Victory.mp3")
+
+signal petunia_death
 
 var health:int = 750
 var laser_ammo: int = 50
@@ -36,7 +39,9 @@ func take_damage(damage):
 	
 func die():
 	Audio.stop_music()
+	petunia_death.emit()
 	Audio.play_sfx(death_sfx)
+	Audio.play_music(win_music)
 	queue_free()
 
 func shoot_circle():
