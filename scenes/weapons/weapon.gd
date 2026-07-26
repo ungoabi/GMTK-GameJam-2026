@@ -12,11 +12,9 @@ extends Node2D
 
 var weapon_level: int = 0
 
-
 func _ready() -> void:
 	fire_cooldown_timer.wait_time = fire_cooldown
-
-
+	
 func shoot() -> void:
 	if not fire_cooldown_timer.is_stopped():
 		return

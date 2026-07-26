@@ -17,5 +17,7 @@ func set_animation() -> void:
 		animation_player.play("idle")
 
 
+
+
 func look_at_mouse() -> void:
 	body.look_at(body.get_global_mouse_position())

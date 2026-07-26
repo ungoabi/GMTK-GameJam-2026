@@ -1,5 +1,7 @@
 extends Projectile
+class_name Laser
 
+	
 
 func _physics_process(delta: float) -> void:
 	_move(delta)

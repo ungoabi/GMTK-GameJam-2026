@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nop1w"]
 size = Vector2(17, 3.4869246)
 
-[node name="Laser" unique_id=762825372 instance=ExtResource("1_8vj1k")]
+[node name="Laser_enemy" unique_id=762825372 instance=ExtResource("1_8vj1k")]
 scale = Vector2(1.6549999, 4.0149994)
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_7gtgb")
 speed = 700.0

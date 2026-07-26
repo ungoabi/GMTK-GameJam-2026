@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://bnpq76ueaxg1a"]
 
 [ext_resource type="Script" uid="uid://dobmnexq8f4ki" path="res://scenes/entities/pickups/pickup.gd" id="1_nlkuh"]
-[ext_resource type="Texture2D" uid="uid://bdxesfnk74rr7" path="res://icon.svg" id="2_oo117"]
+[ext_resource type="Texture2D" uid="uid://bpjll4fet2wqu" path="res://assets/sprites/entities/upgrade_bullet.png" id="2_nlkuh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtj55"]
-radius = 30.066593
+radius = 20.024984
 
 [node name="Pickup" type="Area2D" unique_id=1100804757]
 collision_mask = 2
 script = ExtResource("1_nlkuh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1261593343]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_oo117")
+texture = ExtResource("2_nlkuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090411416]
 shape = SubResource("CircleShape2D_wtj55")

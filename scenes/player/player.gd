@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var weapons: Node = $Weapons
 @onready var camera: Camera2D = $Camera2D
 @onready var upgrade_cooldown: Timer = $upgrade_cooldown
+@onready var fuel_timer: Timer = $FuelTimer
+@onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
 
 var input_direction: Vector2 = Vector2.ZERO
 var input_shoot: bool = false
@@ -35,8 +37,8 @@ func _physics_process(delta: float) -> void:
 			print("weapons +1")
 
 func _process(_delta: float) -> void:
-	animation.animate()
-	
+	if GameStats.player_fuel>0:
+		animation.animate()
 	if GameStats.player_fuel<1:
 		die()
 
@@ -67,7 +69,7 @@ func take_damage(damage):
 
 
 func die():
-	pass
+	animation_player.play("explode")
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):

@@ -23,10 +23,8 @@ func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = bus_map[Bus.MUSIC]
 	add_child(music_player)
-	
-	play_music(playlist[0])
+	_start_bgm()
 	music_player.volume_db-=10
-	music_player.finished.connect(_on_finished)
 
 
 func play_music(stream: AudioStream) -> void:
@@ -43,6 +41,9 @@ func play_music(stream: AudioStream) -> void:
 func stop_music() -> void:
 	music_player.stop()
 
+func _start_bgm():
+	play_music(playlist[0])
+	music_player.finished.connect(_on_finished)
 
 func play_sfx(stream: AudioStream, pitch_variance: float = default_pitch_variance) -> void:
 	_play_one_shot(stream, Bus.SFX, Node.PROCESS_MODE_INHERIT, pitch_variance)
@@ -82,3 +83,6 @@ func _on_finished():
 		play_music(playlist[1])
 	else:
 		play_music(playlist[2])
+		
+func reset():
+	_start_bgm()

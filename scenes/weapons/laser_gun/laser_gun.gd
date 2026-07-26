@@ -1,4 +1,5 @@
 extends Weapon
+class_name LaserGun
 
 @onready var player = $"../.."
 

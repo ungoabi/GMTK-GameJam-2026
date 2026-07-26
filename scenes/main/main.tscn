@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dajvro13rswhn" path="res://assets/sprites/background/test.png" id="2_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dlsn7gc1ue34q" path="res://scenes/entities/enemy/enemy.tscn" id="4_l3cfh"]
 [ext_resource type="Script" uid="uid://bnapfrrroj8nr" path="res://scenes/main/fuelmeter.gd" id="5_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://b51h2hmpo8ug7" path="res://scenes/entities/petunia.tscn" id="6_b1x3f"]
 [ext_resource type="FontFile" uid="uid://dpl3t4707x302" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bjx5axte7pgy4" path="res://scenes/main/time_label.gd" id="8_yyfjg"]
 
@@ -57,6 +58,9 @@ scale = Vector2(1.0064473, 0.9903985)
 position = Vector2(191, 149)
 
 [node name="Pickups" type="Node2D" parent="World/Entity" unique_id=1110522398]
+
+[node name="Petunia" parent="World/Entity" unique_id=1402145885 instance=ExtResource("6_b1x3f")]
+position = Vector2(855, 109)
 
 [node name="Effect" type="Node2D" parent="World" unique_id=1015931991]
 
@@ -136,3 +140,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [connection signal="timeout" from="World/Spawnpoints/Spawntimer" to="World/Spawnpoints" method="_on_spawntimer_timeout"]
+[connection signal="timeout" from="World/Game_Timer" to="World" method="_on_game_timer_timeout"]
+[connection signal="timeout" from="World/Game_Timer" to="World/Entity/Player" method="_on_game_timer_timeout"]
+[connection signal="timeout" from="World/Game_Timer" to="Hud/Hud/Fuelmeter" method="_on_game_timer_timeout"]
+[connection signal="timeout" from="World/Game_Timer" to="Hud/Hud/Time_Label" method="_on_game_timer_timeout"]

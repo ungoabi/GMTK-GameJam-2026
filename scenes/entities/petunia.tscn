@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b51h2hmpo8ug7"]
+
+[ext_resource type="Script" uid="uid://52c7bj2wgp0v" path="res://scenes/entities/petunia.gd" id="1_3nxlx"]
+[ext_resource type="Texture2D" uid="uid://dbn13myuyqhww" path="res://assets/sprites/entities/PETUNIA_THE_MOTHERSHIP-Sheet.png" id="2_lwi5y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtj55"]
+radius = 64.0
+height = 264.0
+
+[sub_resource type="Animation" id="Animation_8snny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_u41d7"]
+resource_name = "idle"
+length = 0.53333336
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w46jn"]
+_data = {
+&"RESET": SubResource("Animation_8snny"),
+&"idle": SubResource("Animation_u41d7")
+}
+
+[node name="Petunia" type="CharacterBody2D" unique_id=1402145885]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_3nxlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218059581]
+texture = ExtResource("2_lwi5y")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648983347]
+position = Vector2(1, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wtj55")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=59409880]
+root_node = NodePath("../CollisionShape2D")
+libraries/ = SubResource("AnimationLibrary_w46jn")
+
+[node name="Attack_Timer" type="Timer" parent="." unique_id=1339635632]
+autostart = true
+
+[connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]

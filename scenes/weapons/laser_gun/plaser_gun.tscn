@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://brlptvdgqaqbh"]
+
+[ext_resource type="PackedScene" uid="uid://ch7dvsn757ra7" path="res://scenes/weapons/weapon.tscn" id="1_tt86q"]
+
+[sub_resource type="GDScript" id="GDScript_p3eyp"]
+script/source = "extends LaserGun
+
+var max_ammo:int=50
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+	
+	
+"
+
+[node name="PlaserGun" unique_id=1938063594 instance=ExtResource("1_tt86q")]
+script = SubResource("GDScript_p3eyp")
+
+[node name="FireCooldown" parent="." index="1" unique_id=1145375820]
+wait_time = 0.1

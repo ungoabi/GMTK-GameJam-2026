@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://1nk5pwgnsedp"]
+
+[ext_resource type="PackedScene" uid="uid://4cyaj452v28u" path="res://scenes/projectiles/projectile.tscn" id="1_au57m"]
+[ext_resource type="Texture2D" uid="uid://b8xj8ntirrb8q" path="res://assets/sprites/projectiles/plasma_bullet-Sheet.png" id="3_5mvcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nop1w"]
+size = Vector2(7, 5)
+
+[sub_resource type="Animation" id="Animation_2imc4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2bxqy"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jn2pq"]
+_data = {
+&"RESET": SubResource("Animation_2imc4"),
+&"idle": SubResource("Animation_2bxqy")
+}
+
+[node name="Plaser" unique_id=762825372 instance=ExtResource("1_au57m")]
+scale = Vector2(2, 2)
+script = null
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1981816932]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_nop1w")
+
+[node name="Sprite2D" parent="." index="1" unique_id=644418234]
+rotation = 4.712389
+texture = ExtResource("3_5mvcx")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=2121447247]
+libraries/ = SubResource("AnimationLibrary_jn2pq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
